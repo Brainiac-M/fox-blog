@@ -4,7 +4,7 @@ import Home from './Home';
 function App() {
   return (
     <div className="App">
-      <div className = "content">
+      <div className = "conten gt55t vgfr4t">
         <h1>App Component</h1>
         <Navbar />
         <Home />
