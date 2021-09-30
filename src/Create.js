@@ -1,14 +1,37 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
     const [ title, setTitle ] = useState('');
     const [ body, setBody ] = useState('');
     const [ author , setAuthor] = useState('mahmood');
+    const [ isPending, setIsPending] = useState(false);
+    const history = useHistory();
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const blog = { title, body, author};
+
+        setIsPending(true)
+
+        fetch('http://localhost:800/blogs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(blog)
+        }).then(() => {
+            setIsPending(false);
+
+            //to go back one tab in history, add
+            // history.go(-1)
+            history.push('/');
+        })
+    }
 
     return ( 
         <div className = "create">
             <h2>Add a Blog</h2>
-            <form>
+            <form onSubmit = {handleSubmit}>
                 <label>Blog title:</label>
                 <input
                     type="text"
@@ -33,10 +56,9 @@ const Create = () => {
                     <option value= "mahmood">Mahmood</option>
                     <option value= "awwal">Awwal</option>
                 </select>
-                <button>Add Blog</button>
-                <p>{title}</p>
-                <p>{body}</p>
-                <p>{author}</p>
+                { !isPending && <button>Add Blog</button>}
+                { isPending && <button>Adding new blog...</button>}
+
             </form>
         </div>
      );

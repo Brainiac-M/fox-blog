@@ -71,13 +71,18 @@
   line-height: 25px;
 }
 .blog-details button {
-  background: #f1356d;
-  color: #fff;
+  background: #008cff;
+  color: #35f15e;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
 }
+.blog-details button:hover{
+  color: #008cff;
+  background-color: #35f15e;
+}
+
 
 /* create new blog form */
 .create {
@@ -115,4 +120,23 @@
 .create button:hover{
   color: #008cff;
   background-color: #35f15e;
+}
+
+/*404 Page Styles*/
+.not-found{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.not-found h2 {
+  font-size: 100px;
+  margin-bottom: 30px;
+}
+.not-found p a{
+text-decoration: none;
+color: #008cff;
+}
+.not-found p a:hover{
+  color: #35f15e;
 }
