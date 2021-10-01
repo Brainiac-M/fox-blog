@@ -1,8 +1,9 @@
 import Bloglist from "./Bloglist";
 import useFetch from "./useFetch";
+import { BaseUrl } from "./utilities";
 
 const Home = () => {
-     const { data: blogs , isLoading, error } = useFetch("http://localhost:800/blogs")
+     const { data: blogs , isLoading, error } = useFetch(`${BaseUrl}/blogs`)
 
 
     return (  

@@ -1,14 +1,14 @@
 import { useHistory, useParams } from "react-router";
 import useFetch from "./useFetch";
-
+import { BaseUrl } from "./utilities";
 
 const BlogDetails = () => {
     const { id } = useParams ();
-    const { data:blog , error, isLoading } = useFetch('http://localhost:800/blogs/' + id);
+    const { data:blog , error, isLoading } = useFetch(`${BaseUrl}/blogs/` + id);
     const history = useHistory();
 
     const handleClick = () => {
-        fetch('http://localhost:800/blogs/' + blog.id, {
+        fetch(`${BaseUrl}/blogs/` + blog.id, {
             method: 'DELETE'
         }).then(() => {
             history.push('/')
