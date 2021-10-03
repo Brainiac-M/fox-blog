@@ -7,6 +7,9 @@
   color: #35f15e;
   background-color: #000000b9;
 }
+.app{
+  min-height: 100vh;
+}
 .navbar {
   padding: 20px;
   display: flex;
